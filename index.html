@@ -108,11 +108,29 @@
             left: 75%;
             animation-duration: 5.5s;
         }
+        @keyframes open {
+            0% {
+                transform: scaleY(0);
+            }
+            100% {
+                transform: scaleY(1);
+            }
+        }
+        .paper {
+            width: 80%;
+            height: 300px;
+            background: #fff;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            transform-origin: top;
+            animation: open 1s ease-in-out forwards;
+        }
     </style>
 </head>
 <body>
     <div class="ribbon"></div>
-    <div class="container">
+    <div class="container paper">
         <h1 class="glow">Welcome!</h1>
         <p class="welcome">We are delighted to have you here to celebrate <span class="glow">Diana's</span> 21st birthday!</p>
         <div class="invitation">
