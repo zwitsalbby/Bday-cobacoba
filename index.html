@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diana's 21st Birthday Invitation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #FFD1DC, #FF9AA2, #FFB7B2, #FFDAC1);
+            color: #555;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+        .welcome {
+            display: none;
+        }
+        .invitation {
+            display: none;
+        }
+        .next-box {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #FFB7B2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .next-box:hover {
+            background-color: #FF9AA2;
+        }
+        .ribbon {
+            width: 200px;
+            height: 50px;
+            background-color: #FFDAC1;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%);
+        }
+        .ribbon::before, .ribbon::after {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: #FFDAC1;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .ribbon::before {
+            left: -20px;
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+        }
+        .ribbon::after {
+            right: -20px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%);
+        }
+        .glow {
+            font-family: 'Great Vibes', cursive;
+            color: #FFB7B2;
+            font-size: 36px;
+            text-shadow: 0 0 10px rgba(255, 183, 178, 0.8);
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        .balloon {
+            width: 50px;
+            height: 70px;
+            background-color: #FF9AA2;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -100px;
+            animation: float 4s ease-in-out infinite;
+        }
+        .balloon:nth-child(2) {
+            left: 25%;
+            animation-duration: 4.5s;
+        }
+        .balloon:nth-child(3) {
+            left: 50%;
+            animation-duration: 5s;
+        }
+        .balloon:nth-child(4) {
+            left: 75%;
+            animation-duration: 5.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="ribbon"></div>
+    <div class="container">
+        <h1 class="glow">Welcome!</h1>
+        <p class="welcome">We are delighted to have you here to celebrate <span class="glow">Diana's</span> 21st birthday!</p>
+        <div class="invitation">
+            <h2 class="glow">You are invited!</h2>
+            <p>Join us in celebrating <span class="glow">Diana's</span> 21st birthday on November 24, 2024.</p>
+            <p>Venue: Taman Hutan Kota GBK</p>
+            <p>Time: 3 PM</p>
+        </div>
+        <button class="next-box" onclick="showInvitation()">Next</button>
+    </div>
+    <div class="balloon" style="left: 10%;"></div>
+    <div class="balloon" style="left: 25%;"></div>
+    <div class="balloon" style="left: 50%;"></div>
+    <div class="balloon" style="left: 75%;"></div>
+
+    <script>
+        function showInvitation() {
+            document.querySelector('.welcome').style.display = 'block';
+            document.querySelector('.next-box').style.display = 'none';
+            const container = document.querySelector('.container');
+            container.style.transform = 'scale(1.1)';
+            container.style.opacity = '0';
+            setTimeout(() => {
+                document.querySelector('.invitation').style.display = 'block';
+                container.style.transform = 'scale(1)';
+                container.style.opacity = '1';
+            }, 500);
+        }
+    </script>
+</body>
+</html>
